@@ -1,0 +1,24 @@
+baseURL : "https://ernestblog.github.io/"
+title: "Gone Fishing - Getting Started"
+theme: "PaperMod"
+
+params:
+  title: "Gone Fishing - Getting Started"
+  description: "A blog on all things Automation"
+  author: "Me"
+  DateFormat: "January 2, 2006"
+  defaultTheme: "auto"
+
+profileMode:
+    enabled: false # needs to be explicitly set
+    title: Gone Fishing - Getting Started
+    subtitle: "This is subtitle"
+    imageUrl: "<https://www.animatedimages.org/data/media/157/animated-fishing-image-0131.gif>"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: my image
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
