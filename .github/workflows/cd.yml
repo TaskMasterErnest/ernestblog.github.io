@@ -1,0 +1,37 @@
+---
+name: Build and Deploy Hugo site via GitHub Pages
+  
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - main
+          
+jobs:     
+  build-and-deploy-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+            
+      - name: setup-Hugo
+        uses: peaceiris/action-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
+            
+      - name: build Hugo site
+        run: hugo --minify
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.event.name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
+          publish_dir: ./public
+
